@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Shaheen Academy School Sazzad</title>
+  <meta name="description" content="Learn about the history, mission, and values of Shaheen Academy School Scouts. We build character through outdoor adventures and community service.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232A5D3A'%3E%3Cpath d='M12,2 C12,5 14,6 14,9 C14,10.0609613 13.7330315,11.0783105 13.265625,12 C14.2406698,12.9068303 15,13.9329806 15,15 C15,16.6568542 13.6568542,18 12,18 C10.3431458,18 9,16.6568542 9,15 C9,13.9329806 9.75933025,12.9068303 10.734375,12 C10.2669685,11.0783105 10,10.0609613 10,9 C10,6 12,5 12,2 Z M12,13 C11.1715729,13 10.5,13.6715729 10.5,14.5 C10.5,15.3284271 11.1715729,16 12,16 C12.8284271,16 13.5,15.3284271 13.5,14.5 C13.5,13.6715729 12.8284271,13 12,13 Z M7,17.7857143 C7,16.2352714 8.05439927,15 9.39285714,15 C8.57358714,15.7968545 8,16.810367 8,17.8571429 C8,19.0466429 8.70078356,20.0177114 9.66964286,20.5357143 C8.31362999,20.7968526 7,19.4583329 7,17.7857143 Z M17,17.7857143 C17,19.4583329 15.68637,20.7968526 14.3303571,20.5357143 C15.2992164,20.0177114 16,19.0466429 16,17.8571429 C16,16.810367 15.4264129,15.7968545 14.6071429,15 C15.9456007,15 17,16.2352714 17,17.7857143 Z M12,21 C10.8957813,21 10,21.8957813 10,23 L14,23 C14,21.8957813 13.1042187,21 12,21 Z'/%3E%3C/svg%3E" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'scout-green': '#2A5D3A',
+            'scout-darkgreen': '#1A3B24',
+            'scout-lightgreen': '#3A7D4A',
+            'scout-brown': '#6D4C41',
+            'scout-gold': '#D4A44C',
+            'scout-sand': '#F5E9D6'
+          },
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+            'poppins': ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/scout-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-poppins bg-scout-sand">
+  <!-- Navigation -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center">
+          <div class="w-10 h-10 bg-scout-green rounded-full flex items-center justify-center mr-2">
+            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,2 C12,5 14,6 14,9 C14,10.0609613 13.7330315,11.0783105 13.265625,12 C14.2406698,12.9068303 15,13.9329806 15,15 C15,16.6568542 13.6568542,18 12,18 C10.3431458,18 9,16.6568542 9,15 C9,13.9329806 9.75933025,12.9068303 10.734375,12 C10.2669685,11.0783105 10,10.0609613 10,9 C10,6 12,5 12,2 Z M12,13 C11.1715729,13 10.5,13.6715729 10.5,14.5 C10.5,15.3284271 11.1715729,16 12,16 C12.8284271,16 13.5,15.3284271 13.5,14.5 C13.5,13.6715729 12.8284271,13 12,13 Z M7,17.7857143 C7,16.2352714 8.05439927,15 9.39285714,15 C8.57358714,15.7968545 8,16.810367 8,17.8571429 C8,19.0466429 8.70078356,20.0177114 9.66964286,20.5357143 C8.31362999,20.7968526 7,19.4583329 7,17.7857143 Z M17,17.7857143 C17,19.4583329 15.68637,20.7968526 14.3303571,20.5357143 C15.2992164,20.0177114 16,19.0466429 16,17.8571429 C16,16.810367 15.4264129,15.7968545 14.6071429,15 C15.9456007,15 17,16.2352714 17,17.7857143 Z M12,21 C10.8957813,21 10,21.8957813 10,23 L14,23 C14,21.8957813 13.1042187,21 12,21 Z"></path>
+            </svg>
+          </div>
+          <span class="font-montserrat font-bold text-scout-darkgreen text-xl">Shaheen Academy <span class="text-scout-gold">Scouts</span></span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors active">Home</a>
+          
+          <a href="members.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors">Members</a>
+          <a href="attendance.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors">Attendance</a>
+          <a href="about.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors">About</a>
+          <a href="https://forms.gle/zhEoJk897AzasvzY8" target="_blank" class="scout-button">Join Scouts</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden flex items-center text-scout-darkgreen">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </nav>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="md:hidden hidden animate-fadeIn">
+        <div class="py-4 space-y-3">
+          <a href="index.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Home</a>
+          <a href="about.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded active">About</a>
+          <a href="members.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Members</a>
+          <a href="events.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Events</a>
+          <a href="work-album.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Work Album</a>
+          <a href="achievements.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Achievements</a>
+          <div class="pt-2 pb-4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16">
+    <!-- About Hero Section -->
+    <section class="bg-scout-green py-20 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-montserrat font-bold mb-4 animate-fadeIn">
+          ABOUT <span class="text-scout-gold">US</span>
+        </h1>
+        <p class="max-w-2xl mx-auto opacity-80 animate-fadeInUp">
+          Discover the story, mission, and values that drive Shaheen Academy School Scouts to build character and leadership through outdoor adventures.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Our Story Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="md:w-1/2 animate-fadeInUp">
+            <h2 class="text-3xl font-montserrat font-bold text-scout-darkgreen mb-6">
+              OUR <span class="text-scout-gold">STORY</span>
+            </h2>
+            <p class="mb-4 text-scout-brown">
+              Shaheen Academy School Scouts was established in 1998 with a simple mission: to develop the next generation of leaders with strong values, resilience, and practical skills. What began as a small group of 15 students has grown into a vibrant community of over 200 scouts.
+            </p>
+            <p class="mb-4 text-scout-brown">
+              Our program has evolved over the years, but our commitment to character development, outdoor adventure, and community service has remained unwavering. As we've grown, we've expanded our programs to encompass a wider range of activities and learning opportunities.
+            </p>
+            <p class="text-scout-brown">
+              Today, Shaheen Academy School Scouts continues to be a place where young people can discover their potential, build lifelong friendships, and develop the skills they need to become responsible citizens and leaders.
+            </p>
+          </div>
+          <div class="md:w-1/2 animate-fadeIn">
+            <img 
+              src="https://images.unsplash.com/photo-1563299796-17596ed6b017?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+              alt="Scouts around campfire" 
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Mission & Values Section -->
+    <section class="py-16 bg-scout-sand">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-montserrat font-bold text-center text-scout-darkgreen mb-12 animate-fadeIn">
+          OUR MISSION & <span class="text-scout-gold">VALUES</span>
+        </h2>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- Mission Column -->
+          <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg animate-fadeInUp">
+            <div class="w-16 h-16 rounded-full bg-scout-green flex items-center justify-center mb-6 mx-auto">
+              <i class="fas fa-bullseye text-3xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-montserrat font-bold text-center text-scout-darkgreen mb-4">Our Mission</h3>
+            <p class="text-scout-brown mb-4 text-center">
+              To develop young people who are physically strong, mentally awake, and morally straight through outdoor activities, skill development, and community service.
+            </p>
+            <p class="text-scout-brown text-center">
+              We strive to create an environment where scouts can learn by doing, grow through challenges, and develop a lifelong love for nature and service to others.
+            </p>
+          </div>
+          
+          <!-- Values Column -->
+          <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg animate-fadeInUp animation-delay-300">
+            <div class="w-16 h-16 rounded-full bg-scout-green flex items-center justify-center mb-6 mx-auto">
+              <i class="fas fa-heart text-3xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-montserrat font-bold text-center text-scout-darkgreen mb-4">Our Values</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="min-w-8 h-8 rounded-full bg-scout-gold text-white flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-montserrat font-semibold text-scout-darkgreen">Character</h4>
+                  <p class="text-sm text-scout-brown">Integrity, honesty, and ethical decision-making in all actions.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="min-w-8 h-8 rounded-full bg-scout-gold text-white flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-montserrat font-semibold text-scout-darkgreen">Leadership</h4>
+                  <p class="text-sm text-scout-brown">Developing the ability to guide, inspire, and work effectively with others.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="min-w-8 h-8 rounded-full bg-scout-gold text-white flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-montserrat font-semibold text-scout-darkgreen">Service</h4>
+                  <p class="text-sm text-scout-brown">Commitment to helping others and making a positive difference in our community.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="min-w-8 h-8 rounded-full bg-scout-gold text-white flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-montserrat font-semibold text-scout-darkgreen">Outdoor Skills</h4>
+                  <p class="text-sm text-scout-brown">Appreciation for nature and ability to thrive in outdoor environments.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="min-w-8 h-8 rounded-full bg-scout-gold text-white flex items-center justify-center mr-3 mt-1">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-montserrat font-semibold text-scout-darkgreen">Teamwork</h4>
+                  <p class="text-sm text-scout-brown">Collaboration, communication, and respect for diverse perspectives.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- What We Do Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-montserrat font-bold text-center text-scout-darkgreen mb-12 animate-fadeIn">
+          WHAT WE <span class="text-scout-gold">DO</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Activities Card 1 -->
+          <div class="feature-card bg-scout-sand rounded-lg p-6 shadow-lg animate-fadeInUp">
+            <div class="w-16 h-16 rounded-full bg-scout-green mx-auto flex items-center justify-center mb-4">
+              <i class="fas fa-campground text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-montserrat font-semibold text-center text-scout-darkgreen mb-3">Outdoor Adventures</h3>
+            <p class="text-scout-brown text-center">
+              Regular camping trips, hiking expeditions, and nature exploration activities that build practical skills and resilience.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-scout-brown">
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Weekend campouts</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Mountain hiking expeditions</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Wilderness survival training</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Star-gazing and astronomy</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Activities Card 2 -->
+          <div class="feature-card bg-scout-sand rounded-lg p-6 shadow-lg animate-fadeInUp animation-delay-300">
+            <div class="w-16 h-16 rounded-full bg-scout-green mx-auto flex items-center justify-center mb-4">
+              <i class="fas fa-hands-helping text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-montserrat font-semibold text-center text-scout-darkgreen mb-3">Community Service</h3>
+            <p class="text-scout-brown text-center">
+              Volunteer projects that give back to our community and teach the importance of civic responsibility.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-scout-brown">
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Environmental clean-up days</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Food drives for local shelters</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Tree planting initiatives</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Support for elderly care homes</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Activities Card 3 -->
+          <div class="feature-card bg-scout-sand rounded-lg p-6 shadow-lg animate-fadeInUp animation-delay-500">
+            <div class="w-16 h-16 rounded-full bg-scout-green mx-auto flex items-center justify-center mb-4">
+              <i class="fas fa-award text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-montserrat font-semibold text-center text-scout-darkgreen mb-3">Skill Development</h3>
+            <p class="text-scout-brown text-center">
+              Structured badge programs and workshops to develop practical life skills and specialized knowledge.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-scout-brown">
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>First aid and emergency preparedness</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Navigation and orienteering</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Leadership and communication</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-angle-right text-scout-gold mr-2"></i>
+                <span>Environmental conservation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="py-16 bg-scout-green text-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-montserrat font-bold text-center mb-12 animate-fadeIn">
+          OUR <span class="text-scout-gold">JOURNEY</span>
+        </h2>
+        
+        <div class="relative border-l-4 border-scout-gold ml-6 md:ml-0 md:mx-auto md:max-w-4xl pl-6 pb-6">
+          <!-- Timeline Item 1 -->
+          <div class="mb-10 md:flex md:items-center animate-fadeInUp">
+            <div class="absolute -left-4 md:static md:mr-6 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-scout-gold"></div>
+              <div class="hidden md:block h-1 w-16 bg-scout-gold"></div>
+            </div>
+            <div class="md:w-1/3 md:text-right pr-4">
+              <div class="font-montserrat font-bold text-2xl text-scout-gold">1998</div>
+            </div>
+            <div class="bg-white text-scout-darkgreen p-4 rounded-lg shadow-lg mt-2 md:mt-0 md:w-2/3">
+              <h3 class="font-montserrat font-semibold text-xl">Founding</h3>
+              <p class="text-scout-brown text-sm mt-1">
+                Shaheen Academy School Scouts was established with its first troop of 15 students and 2 dedicated leaders.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 2 -->
+          <div class="mb-10 md:flex md:items-center animate-fadeInUp">
+            <div class="absolute -left-4 md:static md:mr-6 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-scout-gold"></div>
+              <div class="hidden md:block h-1 w-16 bg-scout-gold"></div>
+            </div>
+            <div class="md:w-1/3 md:text-right pr-4">
+              <div class="font-montserrat font-bold text-2xl text-scout-gold">2005</div>
+            </div>
+            <div class="bg-white text-scout-darkgreen p-4 rounded-lg shadow-lg mt-2 md:mt-0 md:w-2/3">
+              <h3 class="font-montserrat font-semibold text-xl">Expansion</h3>
+              <p class="text-scout-brown text-sm mt-1">
+                The program expanded to include three age groups and grew to over 50 members, introducing new activities and badges.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 3 -->
+          <div class="mb-10 md:flex md:items-center animate-fadeInUp">
+            <div class="absolute -left-4 md:static md:mr-6 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-scout-gold"></div>
+              <div class="hidden md:block h-1 w-16 bg-scout-gold"></div>
+            </div>
+            <div class="md:w-1/3 md:text-right pr-4">
+              <div class="font-montserrat font-bold text-2xl text-scout-gold">2012</div>
+            </div>
+            <div class="bg-white text-scout-darkgreen p-4 rounded-lg shadow-lg mt-2 md:mt-0 md:w-2/3">
+              <h3 class="font-montserrat font-semibold text-xl">Regional Recognition</h3>
+              <p class="text-scout-brown text-sm mt-1">
+                Our troop received regional recognition for outstanding community service and environmental conservation efforts.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 4 -->
+          <div class="mb-10 md:flex md:items-center animate-fadeInUp">
+            <div class="absolute -left-4 md:static md:mr-6 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-scout-gold"></div>
+              <div class="hidden md:block h-1 w-16 bg-scout-gold"></div>
+            </div>
+            <div class="md:w-1/3 md:text-right pr-4">
+              <div class="font-montserrat font-bold text-2xl text-scout-gold">2018</div>
+            </div>
+            <div class="bg-white text-scout-darkgreen p-4 rounded-lg shadow-lg mt-2 md:mt-0 md:w-2/3">
+              <h3 class="font-montserrat font-semibold text-xl">20th Anniversary</h3>
+              <p class="text-scout-brown text-sm mt-1">
+                Celebrated 20 years of impact with a special jamboree and launched the alumni network to maintain connections.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Timeline Item 5 -->
+          <div class="md:flex md:items-center animate-fadeInUp">
+            <div class="absolute -left-4 md:static md:mr-6 flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full bg-scout-gold"></div>
+              <div class="hidden md:block h-1 w-16 bg-scout-gold"></div>
+            </div>
+            <div class="md:w-1/3 md:text-right pr-4">
+              <div class="font-montserrat font-bold text-2xl text-scout-gold">Present</div>
+            </div>
+            <div class="bg-white text-scout-darkgreen p-4 rounded-lg shadow-lg mt-2 md:mt-0 md:w-2/3">
+              <h3 class="font-montserrat font-semibold text-xl">A Thriving Community</h3>
+              <p class="text-scout-brown text-sm mt-1">
+                Today, we are a vibrant community of over 200 scouts with a wide range of programs and a strong focus on leadership and environmental stewardship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-scout-sand">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-montserrat font-bold text-center text-scout-darkgreen mb-12 animate-fadeIn">
+          WHAT PEOPLE <span class="text-scout-gold">SAY</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                  alt="Parent Testimonial" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 class="font-montserrat font-semibold text-scout-darkgreen">Ahmed Khan</h3>
+                <p class="text-sm text-scout-brown">Parent of Scout</p>
+              </div>
+            </div>
+            <p class="italic text-scout-brown">
+              "Joining the scouts has transformed my son. He's more confident, responsible, and has developed leadership skills I never expected to see at his age. The program's emphasis on character development is remarkable."
+            </p>
+            <div class="mt-4 text-scout-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp animation-delay-300">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" 
+                  alt="Scout Testimonial" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 class="font-montserrat font-semibold text-scout-darkgreen">Amina Rahman</h3>
+                <p class="text-sm text-scout-brown">Senior Scout</p>
+              </div>
+            </div>
+            <p class="italic text-scout-brown">
+              "Being part of the Shaheen Academy Scouts for the past five years has been the highlight of my school experience. I've learned countless skills, made amazing friends, and discovered strengths I never knew I had."
+            </p>
+            <div class="mt-4 text-scout-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-lg animate-fadeInUp animation-delay-500">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" 
+                  alt="Community Member Testimonial" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 class="font-montserrat font-semibold text-scout-darkgreen">Farah Ahmed</h3>
+                <p class="text-sm text-scout-brown">Community Partner</p>
+              </div>
+            </div>
+            <p class="italic text-scout-brown">
+              "As a community garden organizer, I've had the pleasure of working with the Shaheen Scouts on multiple projects. Their dedication, work ethic, and positive impact on our neighborhood has been invaluable."
+            </p>
+            <div class="mt-4 text-scout-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Join Us CTA -->
+    <section class="py-16 bg-scout-green text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-6 animate-fadeIn">
+          BECOME PART OF OUR <span class="text-scout-gold">STORY</span>
+        </h2>
+        <p class="max-w-2xl mx-auto mb-8 animate-fadeInUp">
+          Join our scout community to develop valuable skills, make lifelong friendships, and embark on exciting adventures that will shape your character and future.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="scout-button bg-white text-scout-darkgreen hover:bg-scout-sand">
+            Join Our Troop
+          </button>
+          <button class="scout-button bg-transparent border-2 border-white text-white hover:bg-white hover:text-scout-darkgreen">
+            Volunteer as Leader
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-scout-darkgreen text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 bg-scout-gold rounded-full flex items-center justify-center mr-2">
+              <svg class="w-6 h-6 text-scout-darkgreen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2 C12,5 14,6 14,9 C14,10.0609613 13.7330315,11.0783105 13.265625,12 C14.2406698,12.9068303 15,13.9329806 15,15 C15,16.6568542 13.6568542,18 12,18 C10.3431458,18 9,16.6568542 9,15 C9,13.9329806 9.75933025,12.9068303 10.734375,12 C10.2669685,11.0783105 10,10.0609613 10,9 C10,6 12,5 12,2 Z M12,13 C11.1715729,13 10.5,13.6715729 10.5,14.5 C10.5,15.3284271 11.1715729,16 12,16 C12.8284271,16 13.5,15.3284271 13.5,14.5 C13.5,13.6715729 12.8284271,13 12,13 Z M7,17.7857143 C7,16.2352714 8.05439927,15 9.39285714,15 C8.57358714,15.7968545 8,16.810367 8,17.8571429 C8,19.0466429 8.70078356,20.0177114 9.66964286,20.5357143 C8.31362999,20.7968526 7,19.4583329 7,17.7857143 Z M17,17.7857143 C17,19.4583329 15.68637,20.7968526 14.3303571,20.5357143 C15.2992164,20.0177114 16,19.0466429 16,17.8571429 C16,16.810367 15.4264129,15.7968545 14.6071429,15 C15.9456007,15 17,16.2352714 17,17.7857143 Z M12,21 C10.8957813,21 10,21.8957813 10,23 L14,23 C14,21.8957813 13.1042187,21 12,21 Z"></path>
+              </svg>
+            </div>
+            <span class="font-montserrat font-bold text-xl">Shaheen Academy <span class="text-scout-gold">Scouts</span></span>
+          </div>
+          <p class="text-sm opacity-80 mb-4">
+            Building character, citizenship, and physical fitness through outdoor activities and educational programs.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-montserrat font-semibold text-lg border-b border-scout-gold pb-2 mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-white hover:text-scout-gold transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-white hover:text-scout-gold transition-colors">About Us</a></li>
+            <li><a href="members.html" class="text-white hover:text-scout-gold transition-colors">Our Members</a></li>
+            <li><a href="events.html" class="text-white hover:text-scout-gold transition-colors">Events</a></li>
+            <li><a href="work-album.html" class="text-white hover:text-scout-gold transition-colors">Work Album</a></li>
+            <li><a href="achievements.html" class="text-white hover:text-scout-gold transition-colors">Achievements</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-montserrat font-semibold text-lg border-b border-scout-gold pb-2 mb-4">Contact Us</h4>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-2 text-scout-gold"></i>
+              <span>123 Scout Avenue, Lahore, Pakistan</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-2 text-scout-gold"></i>
+              <span>+92 123 4567890</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-2 text-scout-gold"></i>
+              <span>info@shaheenscouts.com</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-montserrat font-semibold text-lg border-b border-scout-gold pb-2 mb-4">Subscribe</h4>
+          <p class="text-sm opacity-80 mb-4">
+            Stay updated with our latest news and events by subscribing to our newsletter.
+          </p>
+          <form class="flex">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l flex-1 text-scout-darkgreen focus:outline-none">
+            <button type="submit" class="bg-scout-gold text-scout-darkgreen px-4 py-2 rounded-r font-semibold hover:bg-opacity-90 transition-colors">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="border-t border-scout-green mt-8 pt-8 flex flex-col md:flex-row justify-between text-sm">
+        <p>&copy; 2023 Shaheen Academy School Scouts. All rights reserved.</p>
+        <div class="flex mt-4 md:mt-0 space-x-4">
+          <a href="#" class="text-white hover:text-scout-gold transition-colors">Privacy Policy</a>
+          <a href="#" class="text-white hover:text-scout-gold transition-colors">Terms of Service</a>
+          <a href="#" class="text-white hover:text-scout-gold transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

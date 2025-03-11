@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance - Shaheen Academy School Sazzad</title>
+  <meta name="description" content="Track and view attendance records for scout meetings and events at Shaheen Academy School Scouts.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232A5D3A'%3E%3Cpath d='M12,2 C12,5 14,6 14,9 C14,10.0609613 13.7330315,11.0783105 13.265625,12 C14.2406698,12.9068303 15,13.9329806 15,15 C15,16.6568542 13.6568542,18 12,18 C10.3431458,18 9,16.6568542 9,15 C9,13.9329806 9.75933025,12.9068303 10.734375,12 C10.2669685,11.0783105 10,10.0609613 10,9 C10,6 12,5 12,2 Z M12,13 C11.1715729,13 10.5,13.6715729 10.5,14.5 C10.5,15.3284271 11.1715729,16 12,16 C12.8284271,16 13.5,15.3284271 13.5,14.5 C13.5,13.6715729 12.8284271,13 12,13 Z M7,17.7857143 C7,16.2352714 8.05439927,15 9.39285714,15 C8.57358714,15.7968545 8,16.810367 8,17.8571429 C8,19.0466429 8.70078356,20.0177114 9.66964286,20.5357143 C8.31362999,20.7968526 7,19.4583329 7,17.7857143 Z M17,17.7857143 C17,19.4583329 15.68637,20.7968526 14.3303571,20.5357143 C15.2992164,20.0177114 16,19.0466429 16,17.8571429 C16,16.810367 15.4264129,15.7968545 14.6071429,15 C15.9456007,15 17,16.2352714 17,17.7857143 Z M12,21 C10.8957813,21 10,21.8957813 10,23 L14,23 C14,21.8957813 13.1042187,21 12,21 Z'/%3E%3C/svg%3E" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'scout-green': '#2A5D3A',
+            'scout-darkgreen': '#1A3B24',
+            'scout-lightgreen': '#3A7D4A',
+            'scout-brown': '#6D4C41',
+            'scout-gold': '#D4A44C',
+            'scout-sand': '#F5E9D6'
+          },
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+            'poppins': ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/scout-theme.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-poppins bg-scout-sand">
+  <!-- Navigation -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center">
+          <div class="w-10 h-10 bg-scout-green rounded-full flex items-center justify-center mr-2">
+            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,2 C12,5 14,6 14,9 C14,10.0609613 13.7330315,11.0783105 13.265625,12 C14.2406698,12.9068303 15,13.9329806 15,15 C15,16.6568542 13.6568542,18 12,18 C10.3431458,18 9,16.6568542 9,15 C9,13.9329806 9.75933025,12.9068303 10.734375,12 C10.2669685,11.0783105 10,10.0609613 10,9 C10,6 12,5 12,2 Z M12,13 C11.1715729,13 10.5,13.6715729 10.5,14.5 C10.5,15.3284271 11.1715729,16 12,16 C12.8284271,16 13.5,15.3284271 13.5,14.5 C13.5,13.6715729 12.8284271,13 12,13 Z M7,17.7857143 C7,16.2352714 8.05439927,15 9.39285714,15 C8.57358714,15.7968545 8,16.810367 8,17.8571429 C8,19.0466429 8.70078356,20.0177114 9.66964286,20.5357143 C8.31362999,20.7968526 7,19.4583329 7,17.7857143 Z M17,17.7857143 C17,19.4583329 15.68637,20.7968526 14.3303571,20.5357143 C15.2992164,20.0177114 16,19.0466429 16,17.8571429 C16,16.810367 15.4264129,15.7968545 14.6071429,15 C15.9456007,15 17,16.2352714 17,17.7857143 Z M12,21 C10.8957813,21 10,21.8957813 10,23 L14,23 C14,21.8957813 13.1042187,21 12,21 Z"></path>
+            </svg>
+          </div>
+          <span class="font-montserrat font-bold text-scout-darkgreen text-xl">Shaheen Academy <span class="text-scout-gold">Scouts</span></span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors active">Home</a>
+          
+          <a href="members.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors">Members</a>
+          <a href="attendance.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors">Attendance</a>
+          <a href="about.html" class="navigation-link text-scout-darkgreen font-medium hover:text-scout-gold transition-colors">About</a>
+          <a href="https://forms.gle/zhEoJk897AzasvzY8" target="_blank" class="scout-button">Join Scouts</a>
+        </div>
+        
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden flex items-center text-scout-darkgreen">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </nav>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="md:hidden hidden animate-fadeIn">
+        <div class="py-4 space-y-3">
+          <a href="index.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Home</a>
+          <a href="about.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">About</a>
+          <a href="members.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Members</a>
+          <a href="events.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Events</a>
+          <a href="attendance.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded active">Attendance</a>
+          <a href="work-album.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Work Album</a>
+          <a href="achievements.html" class="block py-2 px-4 text-scout-darkgreen hover:bg-scout-sand rounded">Achievements</a>
+          <div class="pt-2 pb-4">
+            <button class="scout-button w-full">Join Scouts</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16">
+    <!-- Attendance Hero Section -->
+    <section class="bg-scout-green py-16 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-montserrat font-bold mb-4 animate-fadeIn">
+          TROOP <span class="text-scout-gold">ATTENDANCE</span>
+        </h1>
+        <p class="max-w-2xl mx-auto opacity-80 animate-fadeInUp">
+          Track and view attendance records for our weekly scout meetings and special events.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Attendance Dashboard -->
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-4">
+        <!-- Main Content Area with Tabs -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <!-- Navigation Tabs -->
+          <div class="flex flex-wrap bg-scout-darkgreen text-white">
+            <button id="meetings-tab" class="attendance-tab py-3 px-6 font-medium rounded-t-lg bg-scout-green">All Meetings</button>
+            <button id="my-attendance-tab" class="attendance-tab py-3 px-6 font-medium hover:bg-scout-green transition-colors">My Attendance</button>
+            <button id="statistics-tab" class="attendance-tab py-3 px-6 font-medium hover:bg-scout-green transition-colors">Statistics</button>
+          </div>
+          
+          <!-- Tab Content -->
+          <div class="p-6">
+            <!-- All Meetings Tab Content -->
+            <div id="meetings-content" class="tab-content">
+              <div class="flex justify-between mb-6">
+                <h2 class="text-2xl font-montserrat font-bold text-scout-darkgreen">Meeting Records</h2>
+                <div class="flex items-center">
+                  <label for="year-filter" class="mr-2 text-scout-brown">Filter by Year:</label>
+                  <select id="year-filter" class="bg-scout-sand border border-scout-brown rounded px-3 py-1">
+                    <option value="all">All Years</option>
+                    <option value="2025" selected>2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- 2025 Meetings -->
+              <div class="year-group" data-year="2025">
+                <h3 class="text-xl font-montserrat font-semibold text-scout-darkgreen mb-4 flex items-center">
+                  <span class="mr-2">2025 Meetings</span>
+                  <span class="bg-scout-gold text-white text-xs py-1 px-2 rounded">Current Year</span>
+                </h3>
+                
+                <div class="space-y-4">
+                  <!-- Meeting Item -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer" data-id="meeting-2025-01">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">JAN</span>
+                          <span class="text-xs">05</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">1st Troop Meeting of 2025</h4>
+                          <p class="text-sm text-scout-brown">Friday, January 5, 2025 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 85%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Meeting Item -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer" data-id="meeting-2025-02">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">JAN</span>
+                          <span class="text-xs">12</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">2nd Troop Meeting of 2025</h4>
+                          <p class="text-sm text-scout-brown">Friday, January 12, 2025 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 92%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Meeting Item -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer" data-id="meeting-2025-03">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">JAN</span>
+                          <span class="text-xs">19</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">3rd Troop Meeting of 2025</h4>
+                          <p class="text-sm text-scout-brown">Friday, January 19, 2025 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 78%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Meeting Item -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer" data-id="meeting-2025-04">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">JAN</span>
+                          <span class="text-xs">26</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">4th Troop Meeting of 2025</h4>
+                          <p class="text-sm text-scout-brown">Friday, January 26, 2025 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 88%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Meeting Item -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer" data-id="meeting-2025-05">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">FEB</span>
+                          <span class="text-xs">02</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">5th Troop Meeting of 2025</h4>
+                          <p class="text-sm text-scout-brown">Friday, February 2, 2025 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 90%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Meeting Item (Next Meeting) -->
+                  <div class="meeting-item bg-scout-sand border-2 border-scout-gold rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer" data-id="meeting-2025-next">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-gold text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">FEB</span>
+                          <span class="text-xs">09</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">
+                            6th Troop Meeting of 2025
+                            <span class="ml-2 bg-scout-green text-white text-xs py-0.5 px-2 rounded">Upcoming</span>
+                          </h4>
+                          <p class="text-sm text-scout-brown">Friday, February 9, 2025 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <button class="scout-button py-1 px-3 text-sm">Mark Attendance</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 2024 Meetings (collapsed by default) -->
+              <div class="year-group mt-8 hidden" data-year="2024">
+                <h3 class="text-xl font-montserrat font-semibold text-scout-darkgreen mb-4 flex items-center cursor-pointer" onclick="toggleYearGroup(this)">
+                  <i class="fas fa-caret-right mr-2"></i>
+                  <span>2024 Meetings</span>
+                </h3>
+                
+                <div class="space-y-4 hidden">
+                  <!-- Sample meeting from 2024 -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">DEC</span>
+                          <span class="text-xs">15</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">End of Year Meeting 2024</h4>
+                          <p class="text-sm text-scout-brown">Friday, December 15, 2024 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 95%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 2023 Meetings (collapsed by default) -->
+              <div class="year-group mt-8 hidden" data-year="2023">
+                <h3 class="text-xl font-montserrat font-semibold text-scout-darkgreen mb-4 flex items-center cursor-pointer" onclick="toggleYearGroup(this)">
+                  <i class="fas fa-caret-right mr-2"></i>
+                  <span>2023 Meetings</span>
+                </h3>
+                
+                <div class="space-y-4 hidden">
+                  <!-- Sample meeting from 2023 -->
+                  <div class="meeting-item bg-scout-sand rounded-lg p-4 transition-transform hover:scale-[1.01] cursor-pointer">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                        <div class="w-12 h-12 bg-scout-green text-white rounded-full flex flex-col items-center justify-center mr-4">
+                          <span class="text-sm font-bold">DEC</span>
+                          <span class="text-xs">22</span>
+                        </div>
+                        <div>
+                          <h4 class="font-montserrat font-semibold">End of Year Meeting 2023</h4>
+                          <p class="text-sm text-scout-brown">Friday, December 22, 2023 • 4:00 PM</p>
+                        </div>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-sm text-scout-brown mr-3">Attendance: 93%</span>
+                        <i class="fas fa-chevron-right text-scout-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- My Attendance Tab (Hidden by default) -->
+            <div id="my-attendance-content" class="tab-content hidden">
+              <h2 class="text-2xl font-montserrat font-bold text-scout-darkgreen mb-6">My Attendance Record</h2>
+              
+              <div class="bg-scout-sand rounded-lg p-6 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                  <div class="mb-4 md:mb-0">
+                    <h3 class="font-montserrat font-semibold text-xl text-scout-darkgreen">Ali Hassan</h3>
+                    <p class="text-scout-brown">Eagle Patrol Leader</p>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-center px-4">
+                      <div class="text-3xl font-bold text-scout-green">90%</div>
+                      <div class="text-sm text-scout-brown">Attendance Rate</div>
+                    </div>
+                    <div class="text-center px-4 border-l border-scout-brown">
+                      <div class="text-3xl font-bold text-scout-green">18</div>
+                      <div class="text-sm text-scout-brown">Meetings Attended</div>
+                    </div>
+                    <div class="text-center px-4 border-l border-scout-brown">
+                      <div class="text-3xl font-bold text-scout-brown">2</div>
+                      <div class="text-sm text-scout-brown">Meetings Missed</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-montserrat font-semibold mb-3">Recent Attendance</h4>
+                  <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                      <thead class="bg-scout-green text-white">
+                        <tr>
+                          <th class="py-2 px-4 text-left">Meeting</th>
+                          <th class="py-2 px-4 text-left">Date</th>
+                          <th class="py-2 px-4 text-left">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200">
+                        <tr>
+                          <td class="py-2 px-4">4th Meeting of 2025</td>
+                          <td class="py-2 px-4">January 26, 2025</td>
+                          <td class="py-2 px-4">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-green-100 text-green-800">Present</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4">3rd Meeting of 2025</td>
+                          <td class="py-2 px-4">January 19, 2025</td>
+                          <td class="py-2 px-4">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-green-100 text-green-800">Present</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4">2nd Meeting of 2025</td>
+                          <td class="py-2 px-4">January 12, 2025</td>
+                          <td class="py-2 px-4">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-red-100 text-red-800">Absent</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4">1st Meeting of 2025</td>
+                          <td class="py-2 px-4">January 5, 2025</td>
+                          <td class="py-2 px-4">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-green-100 text-green-800">Present</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4">End of Year Meeting 2024</td>
+                          <td class="py-2 px-4">December 15, 2024</td>
+                          <td class="py-2 px-4">
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-green-100 text-green-800">Present</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Statistics Tab (Hidden by default) -->
+            <div id="statistics-content" class="tab-content hidden">
+              <h2 class="text-2xl font-montserrat font-bold text-scout-darkgreen mb-6">Attendance Statistics</h2>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-scout-sand rounded-lg p-6">
+                  <h3 class="font-montserrat font-semibold text-xl text-scout-darkgreen mb-4">Attendance by Patrol</h3>
+                  <div class="space-y-4">
+                    <div>
+                      <div class="flex justify-between mb-1">
+                        <span class="font-medium text-scout-darkgreen">Eagle Patrol</span>
+                        <span>92%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-scout-gold h-4 rounded-full" style="width: 92%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-1">
+                        <span class="font-medium text-scout-darkgreen">Fox Patrol</span>
+                        <span>88%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-scout-gold h-4 rounded-full" style="width: 88%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-1">
+                        <span class="font-medium text-scout-darkgreen">Wolf Patrol</span>
+                        <span>85%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-scout-gold h-4 rounded-full" style="width: 85%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-scout-sand rounded-lg p-6">
+                  <h3 class="font-montserrat font-semibold text-xl text-scout-darkgreen mb-4">Monthly Attendance 2025</h3>
+                  <div class="space-y-4">
+                    <div>
+                      <div class="flex justify-between mb-1">
+                        <span class="font-medium text-scout-darkgreen">January</span>
+                        <span>86%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-scout-green h-4 rounded-full" style="width: 86%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-1">
+                        <span class="font-medium text-scout-darkgreen">February</span>
+                        <span>90%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-scout-green h-4 rounded-full" style="width: 90%"></div>
+                      </div>
+                    </div>
+                    <div class="text-center text-sm text-scout-brown mt-6">
+                      <p>Overall Troop Attendance for 2025: <span class="font-bold">88%</span></p>
+                      <p class="mt-1">Target Attendance: <span class="font-bold">90%</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white border border-scout-sand rounded-lg p-6 mt-8">
+                <h3 class="font-montserrat font-semibold text-xl text-scout-darkgreen mb-4">Perfect Attendance Recognition</h3>
+                <p class="mb-4 text-scout-brown">Scouts with 100% attendance this year:</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="flex items-center p-3 bg-scout-sand rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
+                      alt="Scout profile" 
+                      class="w-10 h-10 rounded-full mr-3"
+                    />
+                    <div>
+                      <h4 class="font-semibold text-scout-darkgreen">Hassan Ali</h4>
+                      <p class="text-xs text-scout-brown">Eagle Patrol</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-center p-3 bg-scout-sand rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                      alt="Scout profile" 
+                      class="w-10 h-10 rounded-full mr-3"
+                    />
+                    <div>
+                      <h4 class="font-semibold text-scout-darkgreen">Fatima Khan</h4>
+                      <p class="text-xs text-scout-brown">Fox Patrol</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-center p-3 bg-scout-sand rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                      alt="Scout profile" 
+                      class="w-10 h-10 rounded-full mr-3"
+                    />
+                    <div>
+                      <h4 class="font-semibold text-scout-darkgreen">Tariq Ahmad</h4>
+                      <p class="text-xs text-scout-brown">Wolf Patrol</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Meeting Detail Modal (Hidden by default) -->
+    <div id="meeting-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+      <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scaleIn">
+        <div class="p-6">
+          <div class="flex justify-between items-center border-b border-scout-sand pb-4">
+            <h2 class="text-2xl font-montserrat font-bold text-scout-darkgreen" id="modal-title">1st Troop Meeting of 2025</h2>
+            <button id="close-modal" class="text-scout-brown hover:text-scout-darkgreen">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+          
+          <div class="py-4">
+            <div class="flex flex-wrap text-sm text-scout-brown mb-6">
+              <div class="flex items-center mr-4 mb-2">
+                <i class="far fa-calendar mr-2 text-scout-gold"></i>
+                <span id="modal-date">January 5, 2025</span>
+              </div>
+              <div class="flex items-center mr-4 mb-2">
+                <i class="far fa-clock mr-2 text-scout-gold"></i>
+                <span id="modal-time">4:00 PM - 6:00 PM</span>
+              </div>
+              <div class="flex items-center mr-4 mb-2">
+                <i class="fas fa-map-marker-alt mr-2 text-scout-gold"></i>
+                <span id="modal-location">Scout Hall, Shaheen Academy</span>
+              </div>
+              <div class="flex items-center mb-2">
+                <i class="fas fa-users mr-2 text-scout-gold"></i>
+                <span id="modal-attendance">Attendance: 85% (34/40 scouts)</span>
+              </div>
+            </div>
+            
+            <!-- Present / Absent Tabs -->
+            <div class="flex border-b border-scout-sand mb-6">
+              <button id="present-tab" class="attendance-detail-tab py-2 px-4 border-b-2 border-scout-gold font-medium text-scout-darkgreen">Present (34)</button>
+              <button id="absent-tab" class="attendance-detail-tab py-2 px-4 border-b-2 border-transparent font-medium text-scout-brown hover:text-scout-darkgreen">Absent (6)</button>
+            </div>
+            
+            <!-- Present Members List -->
+            <div id="present-content" class="attendance-detail-content">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                <!-- Present Member Card -->
+                <div class="flex items-center p-3 bg-scout-sand rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                    alt="Ali Hassan" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Ali Hassan</h4>
+                    <p class="text-xs text-scout-brown">Eagle Patrol Leader</p>
+                  </div>
+                </div>
+                
+                <!-- More present members would be listed here -->
+                <div class="flex items-center p-3 bg-scout-sand rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" 
+                    alt="Amina Khan" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Amina Khan</h4>
+                    <p class="text-xs text-scout-brown">Fox Patrol Leader</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-3 bg-scout-sand rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                    alt="Fahad Siddiqui" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Fahad Siddiqui</h4>
+                    <p class="text-xs text-scout-brown">Wolf Patrol Leader</p>
+                  </div>
+                </div>
+                
+                <!-- More present members with "Show More" button -->
+                <div class="flex items-center justify-center p-3 border border-dashed border-scout-brown rounded-lg col-span-full">
+                  <button class="text-scout-brown hover:text-scout-darkgreen text-sm">
+                    <i class="fas fa-plus-circle mr-1"></i> Show All 34 Present Members
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Absent Members List (hidden by default) -->
+            <div id="absent-content" class="attendance-detail-content hidden">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                <!-- Absent Member Card -->
+                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" 
+                    alt="Zain Shah" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Zain Shah</h4>
+                    <p class="text-xs text-scout-brown">Eagle Patrol Member</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1748&q=80" 
+                    alt="Omar Malik" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Omar Malik</h4>
+                    <p class="text-xs text-scout-brown">Fox Patrol Member</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                    alt="Sara Qureshi" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Sara Qureshi</h4>
+                    <p class="text-xs text-scout-brown">Wolf Patrol Member</p>
+                  </div>
+                </div>
+                
+                <!-- More absent members -->
+                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1601288496920-b6154fe3626a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1026&q=80" 
+                    alt="Ayesha Farooq" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Ayesha Farooq</h4>
+                    <p class="text-xs text-scout-brown">Fox Patrol Member</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                    alt="Bilal Ahmed" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Bilal Ahmed</h4>
+                    <p class="text-xs text-scout-brown">Eagle Patrol Member</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1399&q=80" 
+                    alt="Saad Malik" 
+                    class="w-10 h-10 rounded-full mr-3"
+                  />
+                  <div>
+                    <h4 class="font-semibold text-scout-darkgreen">Saad Malik</h4>
+                    <p class="text-xs text-scout-brown">Wolf Patrol Member</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Meeting Summary Section -->
+            <div class="mt-8">
+              <h3 class="text-xl font-montserrat font-semibold text-scout-darkgreen mb-4">Meeting Summary</h3>
+              <div class="bg-scout-sand p-4 rounded-lg">
+                <p class="mb-3 text-scout-brown">The first troop meeting of 2025 focused on introducing new members and outlining the yearly plan. Key points covered:</p>
+                <ul class="list-disc pl-5 text-scout-brown">
+                  <li>Welcome and introduction of 3 new members to the troop</li>
+                  <li>Overview of the 2025 calendar including major events and camping trips</li>
+                  <li>Badge work planning and requirements for the year</li>
+                  <li>Discussion of the community service projects for the first quarter</li>
+                  <li>Assignment of patrol duties and leadership roles</li>
+                </ul>
+                
+                <h4 class="font-montserrat font-semibold text-scout-darkgreen mt-4 mb-2">Upcoming Activities</h4>
+                <ul class="list-disc pl-5 text-scout-brown">
+                  <li>Winter hiking trip scheduled for January 20th</li>
+                  <li>First Aid training workshop on February 5th</li>
+                  <li>Community garden project planning to begin next meeting</li>
+                </ul>
+                
+                <div class="flex justify-end mt-4">
+                  <button class="text-scout-gold hover:text-scout-darkgreen text-sm">
+                    <i class="fas fa-download mr-1"></i> Download Full Meeting Notes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex justify-center mt-4">
+            <button id="close-modal-btn" class="scout-button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-scout-darkgreen text-white py-12 mt-10">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 bg-scout-gold rounded-full flex items-center justify-center mr-2">
+              <svg class="w-6 h-6 text-scout-darkgreen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2 C12,5 14,6 14,9 C14,10.0609613 13.7330315,11.0783105 13.265625,12 C14.2406698,12.9068303 15,13.9329806 15,15 C15,16.6568542 13.6568542,18 12,18 C10.3431458,18 9,16.6568542 9,15 C9,13.9329806 9.75933025,12.9068303 10.734375,12 C10.2669685,11.0783105 10,10.0609613 10,9 C10,6 12,5 12,2 Z M12,13 C11.1715729,13 10.5,13.6715729 10.5,14.5 C10.5,15.3284271 11.1715729,16 12,16 C12.8284271,16 13.5,15.3284271 13.5,14.5 C13.5,13.6715729 12.8284271,13 12,13 Z M7,17.7857143 C7,16.2352714 8.05439927,15 9.39285714,15 C8.57358714,15.7968545 8,16.810367 8,17.8571429 C8,19.0466429 8.70078356,20.0177114 9.66964286,20.5357143 C8.31362999,20.7968526 7,19.4583329 7,17.7857143 Z M17,17.7857143 C17,19.4583329 15.68637,20.7968526 14.3303571,20.5357143 C15.2992164,20.0177114 16,19.0466429 16,17.8571429 C16,16.810367 15.4264129,15.7968545 14.6071429,15 C15.9456007,15 17,16.2352714 17,17.7857143 Z M12,21 C10.8957813,21 10,21.8957813 10,23 L14,23 C14,21.8957813 13.1042187,21 12,21 Z"></path>
+              </svg>
+            </div>
+            <span class="font-montserrat font-bold text-xl">Shaheen Academy <span class="text-scout-gold">Scouts</span></span>
+          </div>
+          <p class="text-sm opacity-80 mb-4">
+            Building character, citizenship, and physical fitness through outdoor activities and educational programs.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-white hover:text-scout-gold transition-colors">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-montserrat font-semibold text-lg border-b border-scout-gold pb-2 mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-white hover:text-scout-gold transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-white hover:text-scout-gold transition-colors">About Us</a></li>
+            <li><a href="members.html" class="text-white hover:text-scout-gold transition-colors">Our Members</a></li>
+            <li><a href="events.html" class="text-white hover:text-scout-gold transition-colors">Events</a></li>
+            <li><a href="attendance.html" class="text-white hover:text-scout-gold transition-colors">Attendance</a></li>
+            <li><a href="work-album.html" class="text-white hover:text-scout-gold transition-colors">Work Album</a></li>
+            <li><a href="achievements.html" class="text-white hover:text-scout-gold transition-colors">Achievements</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-montserrat font-semibold text-lg border-b border-scout-gold pb-2 mb-4">Contact Us</h4>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-2 text-scout-gold"></i>
+              <span>123 Scout Avenue, Lahore, Pakistan</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-2 text-scout-gold"></i>
+              <span>+92 123 4567890</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-2 text-scout-gold"></i>
+              <span>info@shaheenscouts.com</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-montserrat font-semibold text-lg border-b border-scout-gold pb-2 mb-4">Subscribe</h4>
+          <p class="text-sm opacity-80 mb-4">
+            Stay updated with our latest news and events by subscribing to our newsletter.
+          </p>
+          <form class="flex">
+            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l flex-1 text-scout-darkgreen focus:outline-none">
+            <button type="submit" class="bg-scout-gold text-scout-darkgreen px-4 py-2 rounded-r font-semibold hover:bg-opacity-90 transition-colors">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="border-t border-scout-green mt-8 pt-8 flex flex-col md:flex-row justify-between text-sm">
+        <p>&copy; 2023 Shaheen Academy School Scouts. All rights reserved.</p>
+        <div class="flex mt-4 md:mt-0 space-x-4">
+          <a href="#" class="text-white hover:text-scout-gold transition-colors">Privacy Policy</a>
+          <a href="#" class="text-white hover:text-scout-gold transition-colors">Terms of Service</a>
+          <a href="#" class="text-white hover:text-scout-gold transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script>
+    // Attendance page specific JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab switching functionality
+      const tabs = document.querySelectorAll('.attendance-tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Reset all tabs and contents
+          tabs.forEach(t => t.classList.remove('bg-scout-green'));
+          tabs.forEach(t => t.classList.add('hover:bg-scout-green'));
+          tabContents.forEach(content => content.classList.add('hidden'));
+          
+          // Activate clicked tab
+          this.classList.add('bg-scout-green');
+          this.classList.remove('hover:bg-scout-green');
+          
+          // Show corresponding content
+          const contentId = this.id.replace('-tab', '-content');
+          document.getElementById(contentId).classList.remove('hidden');
+        });
+      });
+      
+      // Year filter functionality
+      const yearFilter = document.getElementById('year-filter');
+      const yearGroups = document.querySelectorAll('.year-group');
+      
+      if (yearFilter) {
+        yearFilter.addEventListener('change', function() {
+          const selectedYear = this.value;
+          
+          yearGroups.forEach(group => {
+            if (selectedYear === 'all' || group.getAttribute('data-year') === selectedYear) {
+              group.classList.remove('hidden');
+            } else {
+              group.classList.add('hidden');
+            }
+          });
+        });
+      }
+      
+      // Meeting item click to show modal
+      const meetingItems = document.querySelectorAll('.meeting-item');
+      const modal = document.getElementById('meeting-detail-modal');
+      
+      meetingItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const meetingId = this.getAttribute('data-id');
+          
+          // In a real app, you would fetch meeting details using the ID
+          // For demo, we're just showing the modal with some static content
+          if (modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+          }
+        });
+      });
+      
+      // Close modal buttons
+      const closeModalButtons = document.querySelectorAll('#close-modal, #close-modal-btn');
+      closeModalButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+          }
+        });
+      });
+      
+      // Close modal when clicking outside
+      if (modal) {
+        modal.addEventListener('click', function(event) {
+          if (event.target === modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+      
+      // Present/Absent tabs in modal
+      const attendanceDetailTabs = document.querySelectorAll('.attendance-detail-tab');
+      const attendanceDetailContents = document.querySelectorAll('.attendance-detail-content');
+      
+      attendanceDetailTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Reset all tabs
+          attendanceDetailTabs.forEach(t => {
+            t.classList.remove('border-scout-gold', 'text-scout-darkgreen');
+            t.classList.add('border-transparent', 'text-scout-brown');
+          });
+          
+          // Activate clicked tab
+          this.classList.remove('border-transparent', 'text-scout-brown');
+          this.classList.add('border-scout-gold', 'text-scout-darkgreen');
+          
+          // Hide/show content
+          attendanceDetailContents.forEach(content => content.classList.add('hidden'));
+          const contentId = this.id.replace('-tab', '-content');
+          document.getElementById(contentId).classList.remove('hidden');
+        });
+      });
+    });
+    
+    // Toggle year groups (expand/collapse)
+    function toggleYearGroup(element) {
+      const content = element.nextElementSibling;
+      const icon = element.querySelector('i');
+      
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.remove('fa-caret-right');
+        icon.classList.add('fa-caret-down');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('fa-caret-down');
+        icon.classList.add('fa-caret-right');
+      }
+    }
+  </script>
+</body>
+</html>
